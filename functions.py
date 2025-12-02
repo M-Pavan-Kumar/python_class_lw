@@ -227,11 +227,20 @@
 # print(add(n))
 
 # sum of digits in a number using recursion
-n=123
-def add_digit(n):
-    if n==0:
-        return 0
-    return n%10+add_digit(n//10)
-print(add_digit(n))
+# n=123
+# def add_digit(n):
+#     if n==0:
+#         return 0
+#     return n%10+add_digit(n//10)
+# print(add_digit(n))
     
-
+# reverse of a given number using recursion
+n=int(input("Enter a number: "))
+def reverse(n,rev=0):
+    if n==0:
+        return rev
+    digit=n%10
+    n=n//10
+    rev=rev*10+digit
+    return reverse(n,rev)
+print(reverse(n))
