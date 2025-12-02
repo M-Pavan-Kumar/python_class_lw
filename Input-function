@@ -1,0 +1,8 @@
+# bk_nm=input("Enter Name of the book: ")
+# pgs=int(input("Enter Number of Pages: "))
+# prc=float(input("Enter Price of the book: "))
+# print("Book Name:       ",bk_nm)
+# print("Number of Pages: ",pgs)
+# print("Price:           ",prc)
+
+print(True + True)

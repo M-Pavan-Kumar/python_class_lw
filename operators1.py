@@ -1,0 +1,46 @@
+# print(21/8)
+# print(-21/8)
+# print(21/-8)
+# print(-21/-8)
+# print(8/21)
+# print(-8/21)
+# print(8/-21)
+# print(-8/-21)
+# print(21.0/8)
+# print(8.0/21)
+
+# print(10//3)
+# print(-10//3)
+# print(10//-3)
+# print(-10//-3)
+# print(30//11)
+# print(-30//11)
+# print(30//-11)
+# print(-30//-11)
+# print(11//30)
+# print(-11//30)
+# print(11//-30)
+# print(-11//-30)
+# print(22.57876//4)
+# print(-22.57876//4)
+# print(22.57876//-4)
+# print(-22.57876//4.62)
+# print(22.57876//4.62)
+# print(-22.57876//-4.62)
+# print(4.5//-4.5)
+
+# print(11%3)
+# print(-11%3)
+# print(11%-3)
+
+# print(-11%-3)
+# print(3%11)
+# print(-3%11)
+
+bse=int(input("Enter Base: "))
+expnt=int(input("Enter Exponent: "))
+result=bse**expnt
+print("Power is: ",result)
+
+
+
