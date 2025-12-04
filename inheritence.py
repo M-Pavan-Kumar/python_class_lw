@@ -65,3 +65,4 @@
 
 # ob_c=Director()
 # ob_c.budget()
+# ob_c.movie_info2("sahoo",2013,"Prabhas")
