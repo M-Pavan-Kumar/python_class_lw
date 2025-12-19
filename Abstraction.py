@@ -72,18 +72,30 @@ class Recharge(ABC):
     def display(self):
         pass
 class Airtel(Recharge):
-    def __init__(self,amount):
+    def __init__(self,amount,coupon):
         self.amount=amount
+        self.coupon=coupon
     def display(self):
+        ur_coupon=input("Enter coupon: ")
+        if ur_coupon==self.coupon:
+            print("Coupon Applied")
+        else:
+            print("coupon not applied")
         print("Recharge succesful , Amount is : ",self.amount)
         discount=self.amount*0.1
         print("You got 10 % discount , Discount is : ",discount)
         total_amount=self.amount-discount
         print("Total amount  paid was: ",total_amount)
 class Jio(Recharge):
-    def __init__(self,amount):
+    def __init__(self,amount,coupon):
         self.amount=amount
+        self.coupon=coupon
     def display(self):
+        ur_coupon=input("Enter coupon: ")
+        if ur_coupon==self.coupon:
+            print("Coupon Applied")
+        else:
+            print("coupon not applied")
         print("Recharge successful, Amount is : ",self.amount)
         cashback=random.randint(1,10)
         print("You got cashback, Cashback is : ",cashback)
@@ -101,10 +113,10 @@ if choice=="1":
     print("2.350")
     plan=input("Enter Plan 1 or 2 : ")
     if plan=="1":
-        airtel=Airtel(500)
+        airtel=Airtel(500,"RC25")
         airtel.display()
     elif plan=="2":
-        airtel=Airtel(350)
+        airtel=Airtel(350,"RC25")
         airtel.display()
     else:
         print("Invalid Plan")
@@ -114,10 +126,10 @@ elif choice=="2":
     print("2.350")
     plan=input("Enter Plan 1 or 2 : ")
     if plan=="1":
-        jio=Jio(500)
+        jio=Jio(500,"RC25")
         jio.display()
     elif plan=="2":
-        jio=Jio(350)
+        jio=Jio(350,"RC25")
         jio.display()
     else:
         print("Invalid Plan")
