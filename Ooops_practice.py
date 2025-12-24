@@ -170,15 +170,67 @@
 # c=Child()
 
 # constructor calling - calling one constructor from another.
-class A():
+# class A():
+#     def __init__(self):
+#         print("Class A")
+# class B(A):
+#     def __init__(self):
+#         super().__init__()
+#         print("Class B")
+# class C(B):
+#     def __init__(self):
+#         super().__init__()
+#         print("Class C")
+# c=C()
+
+
+# Access Modifiers - controls who can access the variables and methods of a class.
+# they help in data hiding, security, and encapsulation.
+
+# Types: 
+# 1.Public 
+# 2.Protected
+# Private
+
+# 1.Public - accessible from anywhere
+# class Student():
+#     def __init__(self,name):
+#         self.name=name   # public variable
+#     def show(self): # public method
+#         print(self.name)
+# s=Student("Pavan")
+# print(s.name)
+# s.show()
+
+# 2. Protected Access Modifier
+# Accessed within the class and in its child classes
+
+# class Parent():
+#     def __init__(self):
+#         self._money=5000  # Protected Varaible
+# class Child(Parent):
+#     def show(self):
+#         print(self._money)
+# child=Child()
+# child.show()
+
+
+# 3.Private access modifier
+# accessible only inside the class
+class Bank():
     def __init__(self):
-        print("Class A")
-class B(A):
-    def __init__(self):
-        super().__init__()
-        print("Class B")
-class C(B):
-    def __init__(self):
-        super().__init__()
-        print("Class C")
-c=C()
+        self.__balance=10000  # Private Variable
+    def show_balance(self):
+        print(self.__balance) 
+b=Bank()
+b.show_balance()
+
+
+# Private methods
+# class Demo():
+#     def __show(self):
+#         print("Private method")
+#     def access(self):
+#         self.__show()
+# d=Demo()
+# d.access()
