@@ -217,13 +217,13 @@
 
 # 3.Private access modifier
 # accessible only inside the class
-class Bank():
-    def __init__(self):
-        self.__balance=10000  # Private Variable
-    def show_balance(self):
-        print(self.__balance) 
-b=Bank()
-b.show_balance()
+# class Bank():
+#     def __init__(self):
+#         self.__balance=10000  # Private Variable
+#     def show_balance(self):
+#         print(self.__balance) 
+# b=Bank()
+# b.show_balance()
 
 
 # Private methods
@@ -234,3 +234,95 @@ b.show_balance()
 #         self.__show()
 # d=Demo()
 # d.access()
+
+# Encapsulation - process of binding the data(variables) and methods(behaviors) into a single unit (class) and restricting the direct access to the data.
+# Data hiding and controlled access
+
+# encapsulation is achieved through the private varibles(__var)
+# and using public methods (getters/setters)
+
+# why encapsulation needed?
+# protects the data from unathorized access
+# improves the security
+# makes the code maintainable
+# controls how data is modified
+
+# without encapsulation
+# class Bank1():
+#     balance=5000
+# b1=Bank1()
+# print(b1.balance)
+
+# with encapsulation
+# class Bank2():
+#     def __init__(self):
+#         self.__balance=3000  # private variables
+# b2=Bank2()
+# print(b2.__balance)   # error('Bank2' object has no attribute '__balance') 
+
+
+# encapsulation with getter and setter methods
+# class Bank():
+#     def __init__(self):
+#         self.__balance=5000
+#     def deposit(self,amount):
+#         if amount>0:
+#             self.__balance+=amount
+#     def withdraw(self,amount):
+#         if amount<=self.__balance:
+#             self.__balance-=amount
+#     def get_balance(self):
+#         return self.__balance
+# b=Bank()
+# print(b.get_balance())
+# b.deposit(500)
+# print(b.get_balance())
+# b.withdraw(4000)
+# print(b.get_balance())
+
+
+# class Student():
+#     def __init__(self):
+#         self.__marks=0
+#     def set_marks(self,marks):
+#         if(marks>self.__marks):
+#             self.__marks=marks
+#     def getMarks(self):
+#         return self.__marks
+# s=Student()
+# print(s.getMarks())
+# s.set_marks(500)
+# print(s.getMarks())
+# s.set_marks(600)
+# print(s.getMarks())
+
+
+# name Mangling - if you start a variable or method with two underscores (like __variable_name), pyhton automatically chnages its name behind the scenes .
+# original name - __variable_name
+# new mangled_name - _Classname__variable_name
+# why needed ? - to prevent accidents during inheritance
+# for examples if we have parent class and child class ,if both classes have common variables with same name ,
+# name mangling ensures that they dont accidently overwrite each other.
+
+# encapsulation with Protected variables
+# class Account():
+#     def __init__(self):
+#         self._pin=1234
+# class Atm(Account):
+#     def show_pin(self):
+#         print(self._pin)
+# atm=Atm()
+# atm.show_pin()
+
+
+# login system example using encapsulation
+class Login():
+    def __init__(self,password):
+        self.__password=password
+    def check_password(self,pwd):
+        return self.__password==pwd
+l=Login("admin123")
+print(l.check_password("wrong"))
+print(l.check_password("admin123"))
+
+        
