@@ -316,13 +316,149 @@
 
 
 # login system example using encapsulation
-class Login():
-    def __init__(self,password):
-        self.__password=password
-    def check_password(self,pwd):
-        return self.__password==pwd
-l=Login("admin123")
-print(l.check_password("wrong"))
-print(l.check_password("admin123"))
+# class Login():
+#     def __init__(self,password):
+#         self.__password=password
+#     def check_password(self,pwd):
+#         return self.__password==pwd
+# l=Login("admin123")
+# print(l.check_password("wrong"))
+# print(l.check_password("admin123"))
 
-        
+
+
+# Abstraction
+# -- process of hiding implementation details and showing only essential features to the user 
+# in simple what to do is shown and how to do is hidden
+#  why do we need abstraction ? 
+# - Reduces the complexity
+# - makes code flexible
+# - allows independent implementation
+# - improves the security
+
+# Example : 
+# atm - user sees withdraw,deposit
+# internal logic - hidden
+# user does not know how money is processed
+
+
+# How abstraction is achieved ?
+# - Abstract classes
+# - Interfaces (via Abstract Base Classes - ABC)
+
+# Abstract Class
+# - Cannot be instantiated
+# - contains abstract methods
+# - Acts as a blueprint
+
+# syntax
+# from abc import ABC,abstractmethod
+# class ClassName(ABC):
+#     @abstractmethod
+#     def method(self):
+#         pass
+
+# example
+# from abc import ABC,abstractmethod
+# class Vehicle(ABC):
+#     @abstractmethod
+#     def start(self):
+#         pass
+# class Car(Vehicle):
+#     def start(self):
+#         print("Car was started")
+# class Bike(Vehicle):
+#     def start(self):
+#         print("Bike was started")
+# v=Vehicle() # TypeError: Can't instantiate abstract class Vehicle with abstract methods start
+# c=Car()
+# c.start()
+# b=Bike()
+# b.start()
+
+
+
+# Note : 
+# - we cannot create objects for abstract classes
+# - Abstract classes can have normal methods too
+# - child class can implement the abstract methods
+
+# Abstract class with normal methods and abstract methods
+# from abc import ABC,abstractmethod
+# class Shape(ABC):
+#     def show(self):
+#         print("Shape class")
+#     @abstractmethod
+#     def area(self):
+#         pass
+# class Square(Shape):
+#     def area(self,side):
+#         return self.side*self.side
+# class Rectangle(Shape):
+#     def area(self,l,b):
+#         return self.l*self.b
+# r=Rectangle()
+# print(r.area(5,10))
+
+# s=Square()
+# print(s.area(5))
+
+
+# Multiple abstarct methods 
+# from abc import ABC,abstractmethod
+# class Bank(ABC):
+#     @abstractmethod
+#     def deposit(self):
+#         pass
+#     @abstractmethod
+#     def withdraw(self):
+#         pass
+# class MyBank(Bank):
+#     def deposit(self):
+#         print("Deposit done successfully")
+#     def withdraw(self):
+#         print("Amount withdrawn successfully")
+# mybnk=MyBank()
+# mybnk.deposit()
+# mybnk.withdraw()
+
+# Interface in python :
+# - pyhton does not have a seperate interface like java.
+# - But abstract classes with only abstract methods acts as interfaces
+
+# Interface example :
+# from abc import ABC,abstractmethod
+# class Payment(ABC):
+#     @abstractmethod
+#     def pay(self,amount):
+#         pass
+# class Upi(Payment):
+#     def pay(self,amount):
+#         print("Paid ",amount," using UPI")
+# class Card(Payment):
+#     def pay(self,amount):
+#         print("Paid ",amount," using Card")
+# upi=Upi()
+# upi.pay(5000)
+# crd=Card()
+# crd.pay(10000)
+
+# # Abstract class + constructor
+# from abc import ABC,abstractmethod
+# class Device(ABC):
+#     def __init__(self,brand):
+#         self.brand=brand
+#     @abstractmethod
+#     def start(self):
+#         pass
+# class Laptop(Device):
+#     def start(self):
+#         print(self.brand, "laptop started")
+# class PC(Device):
+#     def start(self):
+#         print(self.brand, "PC Started")
+# l=Laptop("ASUS")
+# l.start()
+# pc=PC("DELL")
+# pc.start()
+
