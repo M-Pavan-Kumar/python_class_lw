@@ -462,3 +462,100 @@
 # pc=PC("DELL")
 # pc.start()
 
+# Abstraction vs Interface
+# python does not have a seperate interface keyword in like java.
+# interfaces in python are implemented using Abstract Base Classes (ABC)
+
+# Interface :
+# interface defines only method declarations(no logic) that a class must implement
+# Achieved using - abstract classes with only contains abstract methods but not contain normal methods
+
+# abstraction - partial implementation allowed (abstract methods + normal methods,can have constructor, can have variables)
+# interface - no implementation at all (only abstract methods,no method implementation)
+
+# Polymorphism :
+# - one name , many forms
+# - same method/function/operator behaves differently depends on :
+#   -- object
+#   -- Data type
+#   -- context 
+
+# why polymorphism?
+# - improves flexibility
+# - reduces the code duplication
+# - makes the code extensible
+# - suppports abstarction and inheritance
+
+# Real world example :
+# ATM -> withdraw
+# - SBI ATM -> different logic
+# - HDFC ATM -> different logic
+# same action but different behaviour
+
+# Types of polymorphism in pyhton
+# 1.Run time polymorphism    -  Method overriding
+# 2.Complile time polymorphism  - Method overloading
+# 3.Operator overloading
+# 4.Function polymorphism (Duck Typing)
+
+
+# Compile time polymorphism - Method overloading --> class can have multiple methods with same name but with different parameters.To overload a method we must change the number of parameters or type of parameters or both
+# - pyhton does not support method overloading like java, because pyhon is dynamically typed language 
+# - Achieved using default arguments or varible length arguments(*args) or MultipleDispatch
+
+# # using default arguments
+# class claculator():
+#     def add(self,a=0,b=0,c=0):
+#         return a+b+c
+# c=claculator()
+# print(c.add(2,3))
+# print(c.add(1,2,3))
+
+# # using *args
+# class Demo():
+#     def show(self,*args):
+#         print(args)
+# d=Demo()
+# d.show(3)
+# d.show(3,4,5)
+# d.show(4,5,6)
+
+# using MultipleDispatch
+# from multipledispatch import dispatch
+# class Example():
+#     @dispatch(int,int)
+#     def add(self,a,b):
+#         return a+b
+#     @dispatch(int,int,int)
+#     def add(self,a,b,c):
+#         return a+b+c
+# e=Example()
+# print(e.add(5,10))
+# print(e.add(2,3,4))
+
+
+# Run time polymorphism - Method overriding --> defining a method in subclass with same name as method in super class, in this time python interpreter determines that which method to call at runtime based on the actual object being refered to.
+
+# - happens at runtime
+# - depends on object type
+
+# Example
+# class Parent():
+#     def show(self):
+#         print("I am parent method")
+# class Child(Parent):
+#     def show(self):
+#         print("I am child method")
+# obj=Child()
+# obj.show()
+
+# using super()
+# class Parent():
+#     def show(self):
+#         print("I am parent method")
+# class Child(Parent):
+#     def show(self):
+#         super().show()
+#         print("I am child method")
+# obj=Child()
+# obj.show()
